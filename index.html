@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1B4332">
+  <meta name="description" content="مطبخ سونا - نفسك في إيه؟ اطلب أكل بيتي طازج والتوصيل للجيزة">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <title>مطبخ سونا - Sona Kitchen</title>
+  <style>
+    :root{--green:#1B4332;--green-light:#2D6A4F;--cream:#FAF3E0;--cream-dark:#F0E6CC;--text:#1a1a1a;--muted:#6b6b6b;--white:#fff;--shadow:0 4px 20px rgba(27,67,50,.12);--r:16px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Cairo',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;max-width:480px;margin:0 auto;padding-bottom:90px}
+
+    .hero{background:linear-gradient(135deg,var(--green),var(--green-light));padding:30px 20px 40px;text-align:center;color:var(--white);position:relative}
+    .hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:30px;background:var(--cream);border-radius:50% 50% 0 0}
+    .hero img{width:110px;height:110px;border-radius:50%;border:3px solid rgba(255,255,255,.3);object-fit:cover;margin-bottom:10px}
+    .hero h1{font-size:1.6rem;font-weight:800}
+    .hero .slogan{font-size:1.05rem;opacity:.9;margin:4px 0 14px}
+    .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+    .badge{background:rgba(255,255,255,.15);padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:600}
+
+    .notice{margin:20px 16px 0;background:var(--white);border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow);font-size:.85rem;color:var(--green);font-weight:600;line-height:1.7}
+    .notice .ic{font-size:1.4rem}
+
+    .search-wrap{padding:14px 16px 0;position:sticky;top:0;z-index:10;background:var(--cream)}
+    .search-box{display:flex;align-items:center;gap:10px;background:var(--white);border-radius:var(--r);padding:11px 16px;box-shadow:var(--shadow)}
+    .search-box input{border:none;outline:none;background:transparent;font-family:'Cairo',sans-serif;font-size:.9rem;width:100%;color:var(--text)}
+
+    .filters{display:flex;gap:8px;overflow-x:auto;padding:12px 16px;scrollbar-width:none}
+    .filters::-webkit-scrollbar{display:none}
+    .chip{border:none;padding:8px 16px;border-radius:20px;background:var(--white);color:var(--muted);font-family:'Cairo',sans-serif;font-weight:700;font-size:.82rem;white-space:nowrap;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:.2s}
+    .chip.on{background:var(--green);color:var(--white)}
+
+    .menu{padding:0 16px}
+    .cat-title{font-size:1.1rem;font-weight:800;color:var(--green);margin:16px 0 10px;display:flex;align-items:center;gap:8px}
+    .grid{display:grid;gap:10px}
+    .card{background:var(--white);border-radius:var(--r);padding:12px 14px;box-shadow:0 2px 10px rgba(0,0,0,.05);display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .card h3{font-size:.92rem;font-weight:700;margin-bottom:3px}
+    .card .pr{color:var(--green);font-weight:800;font-size:.95rem}
+    .card .info{flex:1}
+    .abtn{width:38px;height:38px;border-radius:50%;border:none;background:var(--green);color:var(--white);font-size:1.3rem;cursor:pointer;display:grid;place-items:center;flex-shrink:0;transition:.15s}
+    .abtn:active{transform:scale(.9)}
+    .qc{display:flex;align-items:center;gap:8px}
+    .qb{width:30px;height:30px;border-radius:50%;border:2px solid var(--green);background:transparent;color:var(--green);font-size:1rem;font-weight:800;cursor:pointer;display:grid;place-items:center}
+    .qb.rm{border-color:#d32f2f;color:#d32f2f}
+    .qn{font-weight:800;min-width:20px;text-align:center}
+
+    .empty{text-align:center;padding:40px 20px;color:var(--muted)}
+
+    .contact{margin:24px 16px;background:var(--white);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);text-align:center}
+    .contact h2{font-size:1.05rem;color:var(--green);margin-bottom:12px}
+    .cbtns{display:flex;gap:10px;justify-content:center}
+    .cbtn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:12px;border:none;font-family:'Cairo',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;text-decoration:none;color:var(--white)}
+    .wa{background:#25D366}
+    .ca{background:var(--green)}
+
+    .footer{text-align:center;padding:16px;font-size:.78rem;color:var(--muted)}
+
+    .bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--green);color:var(--white);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;z-index:20;box-shadow:0 -4px 20px rgba(27,67,50,.3);transition:transform .3s}
+    .bar.hid{transform:translateX(-50%) translateY(100%)}
+    .bar .inf strong{display:block;font-size:.95rem}
+    .bar .inf span{font-size:.82rem;opacity:.85}
+    .vbtn{border:none;background:var(--white);color:var(--green);padding:10px 18px;border-radius:12px;font-family:'Cairo',sans-serif;font-weight:800;font-size:.85rem;cursor:pointer}
+
+    .ov{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:30;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+    .ov.op{opacity:1;pointer-events:auto}
+    .pnl{width:100%;max-width:480px;background:var(--cream);border-radius:24px 24px 0 0;max-height:90vh;overflow-y:auto;padding:16px 20px 30px;transform:translateY(100%);transition:transform .35s ease}
+    .ov.op .pnl{transform:translateY(0)}
+    .hndl{width:40px;height:5px;background:#ccc;border-radius:10px;margin:0 auto 14px}
+    .shdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+    .shdr h3{font-size:1.15rem;font-weight:800;color:var(--green)}
+    .xbtn{width:34px;height:34px;border-radius:50%;border:none;background:rgba(0,0,0,.08);font-size:1rem;cursor:pointer;display:grid;place-items:center}
+
+    .ci{background:var(--white);border-radius:14px;padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .ci h4{font-size:.88rem;margin-bottom:3px}
+    .ci .sp{color:var(--green);font-weight:700;font-size:.82rem}
+
+    .sbox{background:var(--white);border-radius:14px;padding:14px;margin-top:12px}
+    .sl{display:flex;justify-content:space-between;padding:6px 0;font-size:.92rem}
+    .sl.tot{border-top:2px dashed #ddd;margin-top:8px;padding-top:10px;font-weight:800;font-size:1.05rem;color:var(--green)}
+
+    .form{display:grid;gap:12px;margin-top:14px}
+    .fld label{display:block;font-size:.82rem;font-weight:700;margin-bottom:5px;color:var(--green)}
+    .fld input,.fld textarea{width:100%;border:2px solid #e0e0e0;border-radius:12px;padding:11px 14px;font-family:'Cairo',sans-serif;font-size:.88rem;outline:none;background:var(--white);color:var(--text);transition:border .2s}
+    .fld input:focus,.fld textarea:focus{border-color:var(--green)}
+    .fld textarea{min-height:60px;resize:vertical}
+
+    .acts{margin-top:16px;display:grid;gap:10px}
+    .pbtn{border:none;background:var(--green);color:var(--white);padding:13px;border-radius:14px;font-family:'Cairo',sans-serif;font-weight:800;font-size:.95rem;cursor:pointer;transition:.2s}
+    .pbtn:hover{background:var(--green-light)}
+    .pbtn.wag{background:#25D366}
+    .sbtn{border:none;background:rgba(0,0,0,.06);color:var(--text);padding:11px;border-radius:14px;font-family:'Cairo',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer}
+
+    .tst{position:fixed;bottom:75px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--green);color:var(--white);padding:10px 22px;border-radius:12px;font-weight:700;font-size:.85rem;z-index:50;opacity:0;pointer-events:none;transition:.3s;white-space:nowrap}
+    .tst.sh{opacity:1;transform:translateX(-50%) translateY(0)}
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="logo.png" alt="مطبخ سونا">
+  <h1>مطبخ سونا</h1>
+  <p class="slogan">نفسك في إيه؟ 😋</p>
+  <div class="badges">
+    <span class="badge">📍 التوصيل في الجيزة فقط</span>
+    <span class="badge">🍳 أكل بيتي طازج</span>
+    <span class="badge">📞 01214034910</span>
+  </div>
+</header>
+
+<div class="notice">
+  <span class="ic">📋</span>
+  <div>يتم الطلب قبل الاستلام بيوم أو على حسب الطلب. الأكل طازج ويتحضر خصيصاً ليك ثم التوصيل مباشرة.</div>
+</div>
+
+<div class="search-wrap">
+  <div class="search-box">
+    <span>🔍</span>
+    <input type="search" id="si" placeholder="ابحث عن صنف...">
+  </div>
+</div>
+
+<div class="filters" id="fl"></div>
+
+<main class="menu" id="mn"></main>
+
+<section class="contact">
+  <h2>تواصل معانا</h2>
+  <div class="cbtns">
+    <a href="https://wa.me/201214034910" target="_blank" class="cbtn wa">💬 واتساب</a>
+    <a href="tel:01214034910" class="cbtn ca">📞 اتصل بينا</a>
+  </div>
+</section>
+
+<div class="footer">مطبخ سونا © ٢٠٢٤ - جميع الحقوق محفوظة</div>
+
+<div class="bar hid" id="bb">
+  <div class="inf">
+    <strong id="bc">0 صنف</strong>
+    <span id="bt">0 جنيه</span>
+  </div>
+  <button class="vbtn" id="vb">عرض السلة 🛒</button>
+</div>
+
+<div class="ov" id="cs">
+  <div class="pnl">
+    <div class="hndl"></div>
+    <div class="shdr">
+      <h3>🛒 سلة المشتريات</h3>
+      <button class="xbtn" onclick="cls('cs')">✕</button>
+    </div>
+    <div id="cit"></div>
+    <div class="sbox" id="csm"></div>
+    <div class="acts">
+      <button class="pbtn" id="gcb">متابعة الطلب ←</button>
+      <button class="sbtn" onclick="cls('cs')">متابعة التسوق</button>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="co">
+  <div class="pnl">
+    <div class="hndl"></div>
+    <div class="shdr">
+      <h3>📝 إتمام الطلب</h3>
+      <button class="xbtn" onclick="cls('co')">✕</button>
+    </div>
+    <div id="coi"></div>
+    <div class="form">
+      <div class="fld"><label>الاسم</label><input type="text" id="fn" placeholder="اسمك" required></div>
+      <div class="fld"><label>رقم الهاتف</label><input type="tel" id="fp" placeholder="01xxxxxxxxx" required></div>
+      <div class="fld"><label>العنوان (الجيزة فقط)</label><textarea id="fa" placeholder="العنوان بالتفصيل في الجيزة"></textarea></div>
+      <div class="fld"><label>ملاحظات (اختياري)</label><textarea id="fno" placeholder="أي ملاحظات إضافية..."></textarea></div>
+    </div>
+    <div class="sbox" id="cos"></div>
+    <div class="acts">
+      <button class="pbtn wag" id="swb">📱 إرسال الطلب عبر واتساب</button>
+      <button class="sbtn" onclick="cls('co')">رجوع</button>
+    </div>
+  </div>
+</div>
+
+<div class="tst" id="tst"></div>
+
+<script>
+const M=[
+{id:'couscous-half',n:'نصف كسكسي',c:'كسكسي ومخروطة',p:50,e:'🥘'},
+{id:'couscous-kilo',n:'كيلو كسكسي',c:'كسكسي ومخروطة',p:80,e:'🥘'},
+{id:'makhrouta-half',n:'نصف مخروطة',c:'كسكسي ومخروطة',p:50,e:'🥘'},
+{id:'makhrouta-kilo',n:'كيلو مخروطة',c:'كسكسي ومخروطة',p:80,e:'🥘'},
+{id:'bread-big',n:'عيش بيتي كبير',c:'عيش بيتي',p:10,e:'🍞'},
+{id:'bread-big-whole',n:'عيش بيتي كبير حبة كاملة',c:'عيش بيتي',p:12,e:'🍞'},
+{id:'bread-small',n:'عيش بيتي صغير',c:'عيش بيتي',p:7,e:'🍞'},
+{id:'bread-small-whole',n:'عيش بيتي صغير حبه كاملة',c:'عيش بيتي',p:8,e:'🍞'},
+{id:'mombar-boiled',n:'كيلو ممبار مسلوق',c:'ممبار',p:300,e:'🌭'},
+{id:'mombar-fried',n:'كيلو ممبار محمر',c:'ممبار',p:320,e:'🌭'},
+{id:'mahshi-mix',n:'كيلو محشي مشكل',c:'محشي',p:120,e:'🫑'},
+{id:'mahshi-mix-cooked',n:'كيلو محشي مشكل مستوي',c:'محشي',p:140,e:'🫑'},
+{id:'mahshi-cabbage',n:'كيلو كرنب محشي',c:'محشي',p:130,e:'🥬'},
+{id:'mahshi-cabbage-cooked',n:'كيلو محشي كرنب مستوي',c:'محشي',p:150,e:'🥬'},
+{id:'mahshi-grape',n:'كيلو ورق عنب محشي',c:'محشي',p:150,e:'🍇'},
+{id:'mahshi-grape-cooked',n:'كيلو محشي ورق عنب مستوي',c:'محشي',p:170,e:'🍇'},
+{id:'chicken-special',n:'فرخة كاملة تتبيلة خاصة',c:'دواجن',p:300,e:'🍗'},
+{id:'feta-bread',n:'كيس عيش فتة 400 جرام',c:'أخرى',p:30,e:'🫓'},
+{id:'kishk',n:'طبق كشك متوسط الحجم',c:'أخرى',p:50,e:'🥣'},
+{id:'cake-small',n:'جاتوة شيكولاته صغير',c:'حلويات',p:30,e:'🎂'},
+{id:'cake-medium',n:'جاتوة شيكولاته متوسط',c:'حلويات',p:35,e:'🎂'},
+{id:'cake-large',n:'جاتوة شيكولاته كبير',c:'حلويات',p:55,e:'🎂'},
+{id:'cupcake-choco',n:'كب كيك شيكولاته',c:'حلويات',p:8,e:'🧁'},
+{id:'cupcake-vanilla',n:'كب كيك فانيليا',c:'حلويات',p:7,e:'🧁'}
+];
+
+const CE={'كسكسي ومخروطة':'🥘','عيش بيتي':'🍞','ممبار':'🌭','محشي':'🫑','دواجن':'🍗','أخرى':'🍽️','حلويات':'🧁'};
+const CATS=['الكل',...Object.keys(CE)];
+let ac='الكل',sq='',cart=JSON.parse(localStorage.getItem('sona-c')||'[]');
+const $=id=>document.getElementById(id);
+const fm=n=>n+' جنيه';
+const sv=()=>localStorage.setItem('sona-c',JSON.stringify(cart));
+const cc=()=>cart.reduce((s,i)=>s+i.q,0);
+const ct=()=>cart.reduce((s,i)=>s+i.p*i.q,0);
+
+function flt(){return M.filter(i=>{const co=ac==='الكل'||i.c===ac;const q=sq.trim();return co&&(!q||i.n.includes(q)||i.c.includes(q))})}
+
+function rf(){$('fl').innerHTML=CATS.map(c=>`<button class="chip ${c===ac?'on':''}" onclick="sc('${c}')">${c==='الكل'?'📋':CE[c]} ${c}</button>`).join('')}
+function sc(c){ac=c;rf();rm()}
+
+function rm(){
+  const items=flt();
+  if(!items.length){$('mn').innerHTML='<div class="empty">🔍 مفيش نتائج</div>';return}
+  const g={};items.forEach(i=>{if(!g[i.c])g[i.c]=[];g[i.c].push(i)});
+  let h='';
+  for(const[cat,its]of Object.entries(g)){
+    h+=`<h3 class="cat-title">${CE[cat]||''} ${cat}</h3><div class="grid">`;
+    its.forEach(i=>{
+      const ic=cart.find(x=>x.id===i.id);
+      h+=`<div class="card"><div class="info"><h3>${i.e} ${i.n}</h3><span class="pr">${fm(i.p)}</span></div>`;
+      if(ic)h+=`<div class="qc"><button class="qb rm" onclick="cq('${i.id}',-1)">−</button><span class="qn">${ic.q}</span><button class="qb" onclick="cq('${i.id}',1)">+</button></div>`;
+      else h+=`<button class="abtn" onclick="ad('${i.id}')">+</button>`;
+      h+='</div>';
+    });
+    h+='</div>';
+  }
+  $('mn').innerHTML=h;
+}
+
+function ad(id){const i=M.find(m=>m.id===id);if(!i)return;const x=cart.find(c=>c.id===id);if(x)x.q++;else cart.push({id:i.id,n:i.n,p:i.p,q:1});sv();ra();ts('✅ تمت الإضافة')}
+function cq(id,d){const i=cart.find(c=>c.id===id);if(!i)return;i.q+=d;if(i.q<=0)cart=cart.filter(c=>c.id!==id);sv();ra()}
+
+function rb(){$('bc').textContent=cc()+' صنف';$('bt').textContent=fm(ct());$('bb').classList.toggle('hid',cc()===0)}
+
+function rcs(){
+  if(!cart.length){$('cit').innerHTML='<div class="empty">🛒 السلة فاضية</div>'}
+  else{$('cit').innerHTML=cart.map(i=>`<div class="ci"><div><h4>${i.n}</h4><span class="sp">${fm(i.p)} × ${i.q} = ${fm(i.p*i.q)}</span></div><div class="qc"><button class="qb rm" onclick="cq('${i.id}',-1)">−</button><span class="qn">${i.q}</span><button class="qb" onclick="cq('${i.id}',1)">+</button></div></div>`).join('')}
+  $('csm').innerHTML=`<div class="sl tot"><span>الإجمالي</span><strong>${fm(ct())}</strong></div>`;
+}
+
+function rco(){
+  $('coi').innerHTML=cart.map(i=>`<div class="ci"><div><h4>${i.n}</h4><span class="sp">${i.q} × ${fm(i.p)}</span></div><strong>${fm(i.q*i.p)}</strong></div>`).join('');
+  $('cos').innerHTML=`<div class="sl tot"><span>الإجمالي</span><strong>${fm(ct())}</strong></div>`;
+}
+
+function ra(){rf();rm();rb();rcs();rco()}
+
+function opn(id){$(id).classList.add('op');document.body.style.overflow='hidden'}
+function cls(id){$(id).classList.remove('op');document.body.style.overflow=''}
+
+function ts(m){const t=$('tst');t.textContent=m;t.classList.add('sh');clearTimeout(ts._t);ts._t=setTimeout(()=>t.classList.remove('sh'),2000)}
+
+function swa(){
+  if(!cart.length){ts('❌ السلة فاضية');return}
+  const nm=$('fn').value.trim(),ph=$('fp').value.trim(),ad=$('fa').value.trim();
+  if(!nm||!ph){ts('⚠️ اكتب اسمك ورقمك');return}
+  if(!ad){ts('⚠️ اكتب العنوان');return}
+  let msg='🍳 *طلب جديد من مطبخ سونا*\n──────────────\n';
+  cart.forEach(i=>{msg+=`${i.q}x ${i.n} — ${fm(i.p*i.q)}\n`});
+  msg+='──────────────\n';
+  msg+=`💰 *الإجمالي: ${fm(ct())}*\n\n`;
+  msg+=`👤 الاسم: ${nm}\n📞 الهاتف: ${ph}\n📍 العنوان: ${ad}\n`;
+  const nt=$('fno').value.trim();
+  if(nt)msg+=`📝 ملاحظات: ${nt}\n`;
+  window.open('https://wa.me/201214034910?text='+encodeURIComponent(msg),'_blank');
+  cart=[];sv();cls('co');cls('cs');$('fn').value='';$('fp').value='';$('fa').value='';$('fno').value='';ra();ts('✅ تم إرسال الطلب')
+}
+
+$('vb').addEventListener('click',()=>{rcs();opn('cs')});
+$('gcb').addEventListener('click',()=>{if(!cart.length){ts('❌ السلة فاضية');return}cls('cs');rco();opn('co')});
+$('swb').addEventListener('click',swa);
+$('si').addEventListener('input',e=>{sq=e.target.value;rm()});
+document.querySelectorAll('.ov').forEach(el=>{el.addEventListener('click',e=>{if(e.target===el)cls(el.id)})});
+
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('./service-worker.js').catch(()=>{})})}
+ra();
+</script>
+</body>
+</html>
