@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1B4332">
+  
+  <title>Sona Kitchen | مطبخ سونا - أكل بيتي طازج في الجيزة</title>
+  <meta name="description" content="مطبخ سونا يقدم أشهى الأكلات المنزلية المصرية الطازجة بجودة عالية وطعم أصيل. نوفر المحاشي، الممبار، الكسكسي، الحلويات، والمخبوزات طازجة حسب الطلب داخل الجيزة.">
+  <meta name="keywords" content="مطبخ سونا, أكل بيتي, محشي, ممبار, كسكسي, مخروطة, حلويات بيتي, توصيل الجيزة, Sona Kitchen">
+  <link rel="canonical" href="./index.html">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="./index.html">
+  <meta property="og:title" content="Sona Kitchen | مطبخ سونا - أكل بيتي طازج">
+  <meta property="og:description" content="أشهى الأكلات المنزلية المصرية والحلويات والمخبوزات تجهز طازجة خصيصاً لك والتوصيل داخل الجيزة فقط.">
+  <meta property="og:image" content="logo.png">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Sona Kitchen | مطبخ سونا">
+  <meta property="twitter:description" content="أشهى الأكلات المنزلية المصرية والحلويات والمخبوزات تجهز طازجة خصيصاً لك والتوصيل داخل الجيزة فقط.">
+  <meta property="twitter:image" content="logo.png">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="logo.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Sona Kitchen | مطبخ سونا",
+    "image": "logo.png",
+    "description": "مطبخ منزلي متخصص في الأكلات المصرية والحلويات والمخبوزات الطازجة.",
+    "telephone": "+201214034910",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Giza",
+      "addressCountry": "EG"
+    },
+    "servesCuisine": "Egyptian Home Cooking",
+    "areaServed": "Giza Governorate"
+  }
+  </script>
+
+  <style>
+    :root {
+      --green: #1B4332;
+      --green-light: #2D6A4F;
+      --green-dark: #081C15;
+      --cream: #FAF3E0;
+      --cream-dark: #F0E6CC;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --muted: #555555;
+      --whatsapp: #25D366;
+      --shadow-sm: 0 2px 8px rgba(27,67,50,0.06);
+      --shadow-md: 0 8px 24px rgba(27,67,50,0.1);
+      --shadow-lg: 0 16px 32px rgba(27,67,50,0.15);
+      --r: 20px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Base Setup */
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: 'Cairo', sans-serif; 
+      background: var(--cream); 
+      color: var(--text); 
+      min-height: 100vh; 
+      max-width: 480px; 
+      margin: 0 auto; 
+      padding-bottom: 100px;
+      position: relative;
+      box-shadow: 0 0 32px rgba(0,0,0,0.05);
+    }
+
+    /* Custom Scrollbar for desktop preview */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--green-light); border-radius: 10px; }
+
+    /* Top Highlights Bar */
+    .sales-ticker {
+      background: var(--green-dark);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    .sales-ticker span { display: flex; align-items: center; gap: 4px; }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      padding: 40px 20px 50px;
+      text-align: center;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 35px;
+      background: var(--cream);
+      border-radius: 50% 50% 0 0;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero img {
+      width: 135px;
+      height: 135px;
+      border-radius: 50%;
+      border: 4px solid var(--white);
+      object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      animation: float 4s ease-in-out infinite;
+    }
+    .hero img:hover { transform: scale(1.05) rotate(3deg); }
+    .hero h1 { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 2px; }
+    .hero .slogan { font-size: 1.15rem; opacity: 0.95; font-weight: 600; margin-bottom: 16px; color: var(--cream); }
+    
+    .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+    .badge { background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(255,255,255,0.08); }
+    
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--green);
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    .hero-btn:hover { background: var(--cream); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .hero-btn:active { transform: translateY(0); }
+
+    /* Notice Box */
+    .notice {
+      margin: 15px 16px;
+      background: var(--white);
+      border-radius: var(--r);
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      border-right: 5px solid var(--green-light);
+      transition: var(--transition);
+    }
+    .notice:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .notice .ic { font-size: 1.5rem; line-height: 1; }
+    .notice p { font-size: 0.85rem; color: var(--green); font-weight: 700; line-height: 1.6; }
+
+    /* Search Box */
+    .search-wrap { padding: 12px 16px 4px; position: sticky; top: -1px; z-index: 100; background: var(--cream); }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      border-radius: var(--r);
+      padding: 12px 18px;
+      box-shadow: var(--shadow-sm);
+      border: 2px solid transparent;
+      transition: var(--transition);
+    }
+    .search-box:focus-within { border-color: var(--green-light); box-shadow: var(--shadow-md); }
+    .search-box span { font-size: 1.1rem; color: var(--muted); }
+    .search-box input { border: none; outline: none; background: transparent; font-family: 'Cairo', sans-serif; font-size: 0.95rem; width: 100%; color: var(--text); font-weight: 600; }
+
+    /* Horizontal Category Filters */
+    .filters { display: flex; gap: 8px; overflow-x: auto; padding: 14px 16px; scrollbar-width: none; }
+    .filters::-webkit-scrollbar { display: none; }
+    .chip {
+      border: none;
+      padding: 8px 18px;
+      border-radius: 25px;
+      background: var(--white);
+      color: var(--muted);
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+    .chip:hover { transform: translateY(-1px); background: #fffdf9; }
+    .chip.on { background: var(--green); color: var(--white); box-shadow: var(--shadow-md); transform: scale(1.02); }
+
+    /* Menu & Cards Content */
+    .menu { padding: 0 16px; }
+    .cat-title { font-size: 1.15rem; font-weight: 800; color: var(--green-dark); margin: 20px 4px 12px; display: flex; align-items: center; gap: 8px; }
+    .grid { display: grid; gap: 12px; }
+    
+    .card {
+      background: var(--white);
+      border-radius: var(--r);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: var(--transition);
+      border: 1px solid rgba(27,67,50,0.02);
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: rgba(27,67,50,0.06); }
+    .card .info { flex: 1; }
+    .card h3 { font-size: 0.98rem; font-weight: 700; margin-bottom: 4px; color: var(--text); }
+    .card .pr { color: var(--green-light); font-weight: 800; font-size: 1rem; display: block; }
+    
+    /* Interactive Interactive Buttons */
+    .abtn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: none;
+      background: var(--green);
+      color: var(--white);
+      font-size: 1.4rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      transition: var(--transition);
+      box-shadow: 0 4px 10px rgba(27,67,50,0.2);
+    }
+    .abtn:hover { background: var(--green-light); transform: scale(1.08); }
+    .abtn:active { transform: scale(0.95); }
+    
+    .qc { display: flex; align-items: center; gap: 10px; background: #f4f9f6; padding: 4px 6px; border-radius: 30px; border: 1px solid rgba(27,67,50,0.08); }
+    .qb {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: var(--white);
+      color: var(--green);
+      font-size: 1.1rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .qb:hover { background: var(--cream); }
+    .qb.rm { color: #d32f2f; }
+    .qb.rm:hover { background: #ffebee; }
+    .qn { font-weight: 800; min-width: 22px; text-align: center; font-size: 0.95rem; color: var(--green-dark); }
+
+    .empty { text-align: center; padding: 50px 20px; color: var(--muted); font-weight: 700; }
+
+    /* Sticky Footer Hub Buttons */
+    .contact { margin: 30px 16px 15px; background: var(--white); border-radius: var(--r); padding: 22px 18px; box-shadow: var(--shadow-sm); text-align: center; }
+    .contact h2 { font-size: 1.1rem; color: var(--green-dark); margin-bottom: 14px; font-weight: 800; }
+    .cbtns { display: flex; gap: 12px; justify-content: center; }
+    .cbtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 14px;
+      border: none;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--white);
+      transition: var(--transition);
+      flex: 1;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .cbtn.wa { background: var(--whatsapp); }
+    .cbtn.wa:hover { background: #20ba5a; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(37,211,102,0.25); }
+    .cbtn.ca { background: var(--green); }
+    .cbtn.ca:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(27,67,50,0.2); }
+    .cbtn:active { transform: translateY(0); }
+
+    .footer { text-align: center; padding: 20px 16px; font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+
+    /* Bottom Floating Action Bar */
+    .bar {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 448px;
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 14px 20px;
+      border-radius: var(--r);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 999;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+    }
+    .bar.hid { transform: translateX(-50%) translateY(120%); opacity: 0; pointer-events: none; }
+    .bar .inf strong { display: block; font-size: 1rem; font-weight: 800; }
+    .bar .inf span { font-size: 0.82rem; opacity: 0.85; display: block; margin-top: 1px; }
+    .vbtn {
+      border: none;
+      background: var(--white);
+      color: var(--green-dark);
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 800;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .vbtn:hover { background: var(--cream); transform: scale(1.03); }
+
+    /* Modern Bottom Sheet Drawer Windows */
+    .ov {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 28, 21, 0.4);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .ov.op { opacity: 1; pointer-events: auto; }
+    .pnl {
+      width: 100%;
+      max-width: 480px;
+      background: var(--cream);
+      border-radius: 28px 28px 0 0;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 16px 20px 35px;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+    }
+    .ov.op .pnl { transform: translateY(0); }
+    .hndl { width: 45px; height: 5px; background: #cbd5e1; border-radius: 10px; margin: 0 auto 18px; }
+    .shdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .shdr h3 { font-size: 1.2rem; font-weight: 800; color: var(--green-dark); }
+    .xbtn { width: 36px; height: 36px; border-radius: 50%; border: none; background: rgba(0,0,0,0.06); font-size: 1rem; cursor: pointer; display: grid; place-items: center; transition: var(--transition); }
+    .xbtn:hover { background: rgba(0,0,0,0.1); }
+
+    /* Panels Inner Design */
+    .ci { background: var(--white); border-radius: 16px; padding: 14px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; gap: 12px; box-shadow: var(--shadow-sm); }
+    .ci h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .ci .sp { color: var(--green-light); font-weight: 700; font-size: 0.85rem; }
+
+    .sbox { background: var(--white); border-radius: 16px; padding: 16px; margin-top: 15px; box-shadow: var(--shadow-sm); }
+    .sl { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.95rem; font-weight: 600; color: var(--muted); }
+    .sl.tot { border-top: 2px dashed #e2e8f0; margin-top: 10px; padding-top: 12px; font-weight: 800; font-size: 1.1rem; color: var(--green-dark); }
+
+    /* Interactive Form Elements */
+    .form { display: grid; gap: 14px; margin-top: 16px; }
+    .fld label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; color: var(--green-dark); padding-right: 4px; }
+    .fld input, .fld textarea {
+      width: 100%;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      background: var(--white);
+      color: var(--text);
+      transition: var(--transition);
+      font-weight: 600;
+    }
+    .fld input:focus, .fld textarea:focus { border-color: var(--green-light); box-shadow: 0 0 0 3px rgba(45,106,79,0.1); }
+    .fld textarea { min-height: 75px; resize: vertical; }
+
+    /* Action Trigger Buttons */
+    .acts { margin-top: 20px; display: grid; gap: 12px; }
+    .pbtn { border: none; background: var(--green); color: var(--white); padding: 14px; border-radius: 16px; font-family: 'Cairo', sans-serif; font-weight: 800; font-size: 1rem; cursor: pointer; transition: var(--transition); text-align: center; box-shadow: 0 4px 12px rgba(27,67,50,0.15); }
+    .pbtn:hover { background: var(--green-light); transform: translateY(-1px); }
+    .pbtn.wag { background: var(--whatsapp); box-shadow: 0 4px 12px rgba(37,211,102,0.15); }
+    .pbtn.wag:hover { background: #20ba5a; }
+    .sbtn { border: none; background: rgba(0,0,0,0.05); color: var(--text); padding: 12px; border-radius: 16px; font-family: 'Cairo', sans-serif; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: var(--transition); }
+    .sbtn:hover { background: rgba(0,0,0,0.08); }
+
+    /* Premium Micro Toast Elements */
+    .tst {
+      position: fixed;
+      bottom: 95px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(8, 28, 21, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      z-index: 10000;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+      white-space: nowrap;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .tst.sh { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* Back To Top Action Link */
+    .btt {
+      position: fixed;
+      bottom: 95px;
+      left: 24px;
+      width: 40px;
+      height: 40px;
+      background: var(--white);
+      color: var(--green);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      z-index: 90;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .btt.sh { opacity: 1; pointer-events: auto; }
+    .btt:hover { transform: translateY(-3px); background: var(--cream); }
+
+    /* Keyframe Animations */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="sales-ticker">
+  <span>🍲 طازج وجاهز بعد الطلب</span>
+  <span>🚚 التوصيل للجيزة فقط</span>
+  <span>📞 اطلب عبر واتساب</span>
+</div>
+
+<header class="hero">
+  <div class="hero-content">
+    <img src="logo.png" alt="شعار مطبخ سونا">
+    <h1>مطبخ سونا</h1>
+    <p class="slogan">نفسك في إيه؟ 😋</p>
+    <div class="badges">
+      <span class="badge">📍 التوصيل في الجيزة فقط</span>
+      <span class="badge">🍳 أكل بيتي طازج</span>
+      <span class="badge">📞 01214034910</span>
+    </div>
+    <a href="#mn" class="hero-btn" aria-label="تصفح قائمة الطعام واطلب الآن">✨ اطلب الآن واكتشف المنيو</a>
+  </div>
+</header>
+
+<section class="notice" role="note">
+  <span class="ic" aria-hidden="true">📋</span>
+  <p>يتم الطلب قبل الاستلام بيوم أو على حسب الطلب. الأكل طازج ويتحضر خصيصاً ليك ثم التوصيل مباشرة لضمان أعلى جودة ونكهة بيتي أصيلة.</p>
+</section>
+
+<div class="search-wrap">
+  <div class="search-box">
+    <span aria-hidden="true">🔍</span>
+    <input type="search" id="si" placeholder="ابحث عن أكلتك المفضلة الآن..." aria-label="البحث في الأطعمة">
+  </div>
+</div>
+
+<nav class="filters" id="fl" aria-label="فئات المأكولات"></nav>
+
+<main class="menu" id="mn" aria-live="polite"></main>
+
+<section class="contact">
+  <h2>تواصل معانا ومتابعة الطلبات المباشرة</h2>
+  <div class="cbtns">
+    <a href="https://wa.me/201214034910" target="_blank" rel="noopener" class="cbtn wa" aria-label="ارسل رسالة عبر واتساب">💬 واتساب</a>
+    <a href="tel:01214034910" class="cbtn ca" aria-label="اتصل بنا هاتفياً">📞 اتصل بينا</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>مطبخ سونا © ٢٠٢٤ - ٢٠٢٦ - جميع الحقوق محفوظة</div>
+</footer>
+
+<div class="bar hid" id="bb">
+  <div class="inf">
+    <strong id="bc">0 صنف</strong>
+    <span id="bt">0 جنيه</span>
+  </div>
+  <button class="vbtn" id="vb" aria-label="عرض سلة المشتريات ومراجعة الطلبات">عرض السلة 🛒</button>
+</div>
+
+<div class="ov" id="cs" role="dialog" aria-modal="true" aria-label="سلة المشتريات">
+  <div class="pnl">
+    <div class="hndl"></div>
+    <div class="shdr">
+      <h3>🛒 سلة المشتريات</h3>
+      <button class="xbtn" onclick="cls('cs')" aria-label="إغلاق السلة">✕</button>
+    </div>
+    <div id="cit"></div>
+    <div class="sbox" id="csm"></div>
+    <div class="acts">
+      <button class="pbtn" id="gcb">متابعة الطلب ومكان التوصيل ←</button>
+      <button class="sbtn" onclick="cls('cs')">متابعة التسوق</button>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="co" role="dialog" aria-modal="true" aria-label="إتمام عملية الطلب">
+  <div class="pnl">
+    <div class="hndl"></div>
+    <div class="shdr">
+      <h3>📝 إتمام الطلب</h3>
+      <button class="xbtn" onclick="cls('co')" aria-label="إغلاق نافذة الدفع">✕</button>
+    </div>
+    <div id="coi"></div>
+    <div class="form">
+      <div class="fld">
+        <label for="fn">الاسم بالكامل</label>
+        <input type="text" id="fn" placeholder="اكتب اسمك الكريم" required>
+      </div>
+      <div class="fld">
+        <label for="fp">رقم الهاتف الفعال</label>
+        <input type="tel" id="fp" placeholder="01xxxxxxxxx" required>
+      </div>
+      <div class="fld">
+        <label for="fa">عنوان التوصيل بالتفصيل (الجيزة فقط)</label>
+        <textarea id="fa" placeholder="اكتب الشارع، رقم العقار، والدور بالتفصيل في الجيزة" required></textarea>
+      </div>
+      <div class="fld">
+        <label for="fno">ملاحظات إضافية على تحضير الطعام</label>
+        <textarea id="fno" placeholder="مثال: تسوية معينة، توابل خفيفة، إلخ... (اختياري)"></textarea>
+      </div>
+    </div>
+    <div class="sbox" id="cos"></div>
+    <div class="acts">
+      <button class="pbtn wag" id="swb">📱 تأكيد وإرسال الطلب عبر واتساب</button>
+      <button class="sbtn" onclick="cls('co')">رجوع لتعديل السلة</button>
+    </div>
+  </div>
+</div>
+
+<div class="tst" id="tst" role="alert" aria-live="assertive"></div>
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="الرجوع إلى أعلى الصفحة">▲</button>
+
+<script>
+// Menu Data Architecture
+const M=[
+  {id:'couscous-half',n:'نصف كسكسي',c:'كسكسي ومخروطة',p:50,e:'🥘'},
+  {id:'couscous-kilo',n:'كيلو كسكسي',c:'كسكسي ومخروطة',p:80,e:'🥘'},
+  {id:'makhrouta-half',n:'نصف مخروطة',c:'كسكسي ومخروطة',p:50,e:'🥘'},
+  {id:'makhrouta-kilo',n:'كيلو مخروطة',c:'كسكسي ومخروطة',p:80,e:'🥘'},
+  {id:'bread-big',n:'عيش بيتي كبير',c:'عيش بيتي',p:10,e:'🍞'},
+  {id:'bread-big-whole',n:'عيش بيتي كبير حبة كاملة',c:'عيش بيتي',p:12,e:'🍞'},
+  {id:'bread-small',n:'عيش بيتي صغير',c:'عيش بيتي',p:7,e:'🍞'},
+  {id:'bread-small-whole',n:'عيش بيتي صغير حبه كاملة',c:'عيش بيتي',p:8,e:'🍞'},
+  {id:'mombar-boiled',n:'كيلو ممبار مسلوق',c:'ممبار',p:300,e:'🌭'},
+  {id:'mombar-fried',n:'كيلو ممبار محمر',c:'ممبار',p:320,e:'🌭'},
+  {id:'mahshi-mix',n:'كيلو محشي مشكل',c:'محشي',p:120,e:'🫑'},
+  {id:'mahshi-mix-cooked',n:'كيلو محشي مشكل مستوي',c:'محشي',p:140,e:'🫑'},
+  {id:'mahshi-cabbage',n:'كيلو كرنب محشي',c:'محشي',p:130,e:'🥬'},
+  {id:'mahshi-cabbage-cooked',n:'كيلو محشي كرنب مستوي',c:'محشي',p:150,e:'🥬'},
+  {id:'mahshi-grape',n:'كيلو ورق عنب محشي',c:'محشي',p:150,e:'🍇'},
+  {id:'mahshi-grape-cooked',n:'كيلو محشي ورق عنب مستوي',c:'محشي',p:170,e:'🍇'},
+  {id:'chicken-special',n:'فرخة كاملة تتبيلة خاصة',c:'دواجن',p:300,e:'🍗'},
+  {id:'feta-bread',n:'كيس عيش فتة 400 جرام',c:'أخرى',p:30,e:'🫓'},
+  {id:'kishk',n:'طبق كشك متوسط الحجم',c:'أخرى',p:55,e:'🥣'}, // Updated Price 
+  {id:'cake-small',n:'جاتوة شيكولاته صغير',c:'حلويات',p:30,e:'🎂'},
+  {id:'cake-medium',n:'جاتوة شيكولاته متوسط',c:'حلويات',p:35,e:'🎂'},
+  {id:'cake-large',n:'جاتوة شيكولاته كبير',c:'حلويات',p:55,e:'🎂'},
+  {id:'cupcake-choco',n:'كب كيك شيكولاته',c:'حلويات',p:8,e:'🧁'},
+  {id:'cupcake-vanilla',n:'كب كيك فانيليا',c:'حلويات',p:7,e:'🧁'}
+];
+
+const CE={'كسكسي ومخروطة':'🥘','عيش بيتي':'🍞','ممبار':'🌭','محشي':'🫑','دواجن':'🍗','أخرى':'🍽️','حلويات':'🧁'};
+const CATS=['الكل',...Object.keys(CE)];
+let ac='الكل',sq='',cart=[];
+
+// Safe LocalStorage initialization
+try {
+  cart = JSON.parse(localStorage.getItem('sona-c') || '[]');
+} catch(e) {
+  cart = [];
+}
+
+const $=id=>document.getElementById(id);
+const fm=n=>n+' جنيه';
+const sv=()=>{try{localStorage.setItem('sona-c',JSON.stringify(cart))}catch(e){}};
+const cc=()=>cart.reduce((s,i)=>s+i.q,0);
+const ct=()=>cart.reduce((s,i)=>s+i.p*i.q,0);
+
+function flt(){return M.filter(i=>{const co=ac==='الكل'||i.c===ac;const q=sq.trim();return co&&(!q||i.n.includes(q)||i.c.includes(q))})}
+
+function rf(){$('fl').innerHTML=CATS.map(c=>`<button class="chip ${c===ac?'on':''}" onclick="sc('${c}')" aria-pressed="${c===ac}">${c==='الكل'?'📋':CE[c]} ${c}</button>`).join('')}
+function sc(c){ac=c;rf();rm()}
+
+function rm(){
+  const items=flt();
+  if(!items.length){$('mn').innerHTML='<div class="empty">🔍 لم نجد نتائج لبحثك، جرب كتابة صنف آخر!</div>';return}
+  const g={};items.forEach(i=>{if(!g[i.c])g[i.c]=[];g[i.c].push(i)});
+  let h='';
+  for(const[cat,its]of Object.entries(g)){
+    h+=`<h3 class="cat-title">${CE[cat]||''} ${cat}</h3><div class="grid">`;
+    its.forEach(i=>{
+      const ic=cart.find(x=>x.id===i.id);
+      h+=`<div class="card"><div class="info"><h3>${i.e} ${i.n}</h3><span class="pr">${fm(i.p)}</span></div>`;
+      if(ic)h+=`<div class="qc"><button class="qb rm" onclick="cq('${i.id}',-1)" aria-label="تقليل الكمية">−</button><span class="qn">${ic.q}</span><button class="qb" onclick="cq('${i.id}',1)" aria-label="زيادة الكمية">+</button></div>`;
+      else h+=`<button class="abtn" onclick="ad('${i.id}')" aria-label="إضافة المنتج للسلة">+</button>`;
+      h+='</div>';
+    });
+    h+='</div>';
+  }
+  $('mn').innerHTML=h;
+}
+
+function ad(id){const i=M.find(m=>m.id===id);if(!i)return;const x=cart.find(c=>c.id===id);if(x)x.q++;else cart.push({id:i.id,n:i.n,p:i.p,q:1});sv();ra();ts('✅ تمت إضافة الصنف بنجاح')}
+function cq(id,d){const i=cart.find(c=>c.id===id);if(!i)return;i.q+=d;if(i.q<=0)cart=cart.filter(c=>c.id!==id);sv();ra()}
+
+function rb(){$('bc').textContent=cc()+' صنف';$('bt').textContent=fm(ct());$('bb').classList.toggle('hid',cc()===0)}
+
+function rcs(){
+  if(!cart.length){$('cit').innerHTML='<div class="empty">🛒 السلة فارغة حالياً، أضف بعض الأكلات الطازجة!</div>'}
+  else{$('cit').innerHTML=cart.map(i=>`<div class="ci"><div><h4>${i.n}</h4><span class="sp">${fm(i.p)} × ${i.q} = ${fm(i.p*i.q)}</span></div><div class="qc"><button class="qb rm" onclick="cq('${i.id}',-1)">−</button><span class="qn">${i.q}</span><button class="qb" onclick="cq('${i.id}',1)">+</button></div></div>`).join('')}
+  $('csm').innerHTML=`<div class="sl tot"><span>الإجمالي النهائي</span><strong>${fm(ct())}</strong></div>`;
+}
+
+function rco(){
+  $('coi').innerHTML=cart.map(i=>`<div class="ci"><div><h4>${i.n}</h4><span class="sp">${i.q} × ${fm(i.p)}</span></div><strong>${fm(i.q*i.p)}</strong></div>`).join('');
+  $('cos').innerHTML=`<div class="sl tot"><span>الإجمالي النهائي للطلب</span><strong>${fm(ct())}</strong></div>`;
+}
+
+function ra(){rf();rm();rb();rcs();rco()}
+
+function opn(id){$(id).classList.add('op');document.body.style.overflow='hidden'}
+function cls(id){$(id).classList.remove('op');document.body.style.overflow=''}
+
+function ts(m){const t=$('tst');t.textContent=m;t.classList.add('sh');clearTimeout(ts._t);ts._t=setTimeout(()=>t.classList.remove('sh'),2500)}
+
+function swa(){
+  if(!cart.length){ts('❌ السلة فارغة حالياً');return}
+  const nm=$('fn').value.trim(),ph=$('fp').value.trim(),ad=$('fa').value.trim();
+  if(!nm||!ph){ts('⚠️ يرجى كتابة الاسم ورقم الهاتف الفعال');return}
+  if(!ad){ts('⚠️ يرجى كتابة عنوان التوصيل بالتفصيل');return}
+  
+  let msg='🍳 *طلب جديد من مطبخ سونا*\n──────────────\n';
+  cart.forEach(i=>{msg+=`${i.q}x ${i.n} — ${fm(i.p*i.q)}\n`});
+  msg+='──────────────\n';
+  msg+=`💰 *الإجمالي: ${fm(ct())}*\n\n`;
+  msg+=`👤 الاسم: ${nm}\n📞 الهاتف: ${ph}\n📍 العنوان: ${ad}\n`;
+  const nt=$('fno').value.trim();
+  if(nt)msg+=`📝 ملاحظات: ${nt}\n`;
+  
+  window.open('https://wa.me/201214034910?text='+encodeURIComponent(msg),'_blank');
+  cart=[];sv();cls('co');cls('cs');$('fn').value='';$('fp').value='';$('fa').value='';$('fno').value='';ra();ts('✅ تم تجهيز الرسالة للواتساب');
+}
+
+// Window Event Listeners
+window.addEventListener('scroll', ()=>{
+  $('btt').classList.toggle('sh', window.scrollY > 300);
+});
+
+$('vb').addEventListener('click',()=>{rcs();opn('cs')});
+$('gcb').addEventListener('click',()=>{if(!cart.length){ts('❌ السلة فارغة');return}cls('cs');rco();opn('co')});
+$('swb').addEventListener('click',swa);
+$('si').addEventListener('input',e=>{sq=e.target.value;rm()});
+document.querySelectorAll('.ov').forEach(el=>{el.addEventListener('click',e=>{if(e.target===el)cls(el.id)})});
+
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('./service-worker.js').catch(()=>{})})}
+ra();
+</script>
+</body>
+</html>
