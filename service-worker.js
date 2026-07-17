@@ -1,10 +1,9 @@
-const CACHE_NAME = "sona-kitchen-v2";
+const CACHE_NAME = "sona-kitchen-v1";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
-  "./service-worker.js",
-  "./logo.png",
+  "./service-worker.js"
 ];
 
 self.addEventListener("install", (event) => {
@@ -26,18 +25,24 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
-  if (event.request.method !== "GET") return;
+  if (event.request.method !== "GET") {
+    return;
+  }
 
   event.respondWith(
     caches.match(event.request).then((cached) => {
-      if (cached) return cached;
+      if (cached) {
+        return cached;
+      }
+
       return fetch(event.request)
         .then((response) => {
           if (!response || response.status !== 200 || response.type !== "basic") {
             return response;
           }
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
           return response;
         })
         .catch(() => caches.match("./index.html"));
